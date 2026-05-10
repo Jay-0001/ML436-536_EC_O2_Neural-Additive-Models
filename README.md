@@ -85,31 +85,50 @@ python Project_Code\train_credit_nam.py `
 python Project_Code\tune_credit_nam.py `
   --data_path "<PATH_TO_CREDITCARD_CSV>" `
   --logdir runs\credit_tune_fold1 `
-  --training_epochs 20 `
+  --training_epochs 10 `
   --fold_num 1 `
   --data_split 1 `
   --num_splits 3 `
-  --trials 10 `
-  --save_checkpoint_every_n_epochs 10
+  --trials 5 `
+  --save_checkpoint_every_n_epochs 10 `
+  --run_best_config=false
 ```
 
 ### 3. Train the final model on one fold with chosen hyperparameters
 
 Run `Project_Code\train_credit_nam.py` again using the selected values from the JSON file in `Tuned_Hyperparameters`.
 
+Use the same `fold_num`, `data_split`, and `num_splits` values that were used during tuning for that fold so the final fold run is aligned with the tuned validation setup.
+
+```powershell
+python Project_Code\train_credit_nam.py `
+  --data_path "<PATH_TO_CREDITCARD_CSV>" `
+  --logdir runs\credit_fold1_final `
+  --training_epochs 100 `
+  --fold_num 1 `
+  --data_split 1 `
+  --num_splits 3 `
+  --save_checkpoint_every_n_epochs 10 `
+  --output_regularization <BEST_OUTPUT_REG> `
+  --l2_regularization <BEST_WEIGHT_DECAY> `
+  --dropout <BEST_DROPOUT> `
+  --feature_dropout <BEST_FEATURE_DROPOUT>
+```
+
 ## End-to-End Training Flow
 
 1. Load and preprocess the Credit Fraud dataset.
 2. Split the data into 5 outer folds.
 3. Pick one fold as the held-out test fold.
-4. Split the remaining 4 folds into train and validation data.
+4. Generate `num_splits` candidate train/validation splits from the remaining 4 folds and choose one with `data_split`.
 5. Use Bayesian tuning to search over:
    - output regularization
    - weight decay
    - dropout
    - feature dropout
-6. Select the configuration with the best validation PRAUC.
-7. Train the NAM for the target fold with that configuration.
-8. Restore the best validation checkpoint.
+6. Select the configuration with the best validation PRAUC for that chosen inner split and save it to `Tuned_Hyperparameters`.
+7. Train the NAM for the target fold again using the tuned hyperparameters and the same inner-split settings.
+8. Restore the best validation checkpoint from that final fold run.
 9. Evaluate on the held-out outer test fold and record the final test PRAUC.
-10. Repeat for folds 1 through 5 and average the held-out test PRAUC values.
+10. Repeat the tune-then-train workflow for folds 1 through 5.
+11. Average the 5 held-out test PRAUC values and compute the standard deviation.
