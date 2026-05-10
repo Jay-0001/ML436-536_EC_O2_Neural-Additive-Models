@@ -1,0 +1,249 @@
+PS W:\Binghamton\The 3rd Semester_Deci\Machine Learning\Extra credit\Neural Additive Models\ML436-536_EC_O2_Neural-Additive-Models> python Project_Code\train_credit_nam.py `
+>>   --data_path "W:\Binghamton\The 3rd Semester_Deci\Machine Learning\Extra credit\Neural Additive Models\credit_dataset\creditcard.csv" `
+>>   --logdir runs\credit_nam_verify `
+>>   --training_epochs 5 `
+>>   --fold_num 1 `
+>>   --data_split 1 `
+>>   --num_splits 3 `
+>>   --batch_size 1024 `
+>>   --learning_rate 0.01 `
+>>   --decay_rate 0.995 `
+>>   --dropout 0.5 `
+>>   --feature_dropout 0.0 `
+>>   --output_regularization 0.0 `
+>>   --l2_regularization 0.0 `
+>>   --num_basis_functions 1000 `
+>>   --units_multiplier 2 `
+>>   --activation exu `
+>>   --save_checkpoint_every_n_epochs 5 `
+>>   --early_stopping_epochs 60 `
+>>   --n_models 1
+2026-05-09 19:15:28.058118: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING:tensorflow:From C:\Users\Jay07\anaconda3\envs\nam\lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+WARNING:tensorflow:From W:\Binghamton\The 3rd Semester_Deci\Machine Learning\Extra credit\Neural Additive Models\ML436-536_EC_O2_Neural-Additive-Models\Project_Code\train_credit_nam.py:11: The name tf.disable_v2_behavior is deprecated. Please use tf.compat.v1.disable_v2_behavior instead.
+
+WARNING:tensorflow:From C:\Users\Jay07\anaconda3\envs\nam\lib\site-packages\tensorflow\python\compat\v2_compat.py:108: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From W:\Binghamton\The 3rd Semester_Deci\Machine Learning\Extra credit\Neural Additive Models\ML436-536_EC_O2_Neural-Additive-Models\Project_Code\train_credit_nam.py:420: The name tf.logging.set_verbosity is deprecated. Please use tf.compat.v1.logging.set_verbosity instead.
+
+W0509 19:15:33.638127 56496 module_wrapper.py:149] From W:\Binghamton\The 3rd Semester_Deci\Machine Learning\Extra credit\Neural Additive Models\ML436-536_EC_O2_Neural-Additive-Models\Project_Code\train_credit_nam.py:420: The name tf.logging.set_verbosity is deprecated. Please use tf.compat.v1.logging.set_verbosity instead.
+
+INFO:tensorflow:Dataset: Credit, Size: 284807
+I0509 19:15:34.922649 56496 train_credit_nam.py:381] Dataset: Credit, Size: 284807
+INFO:tensorflow:Cross-val fold: 1/5
+I0509 19:15:34.922649 56496 train_credit_nam.py:382] Cross-val fold: 1/5
+INFO:tensorflow:Started training with logdir runs\credit_nam_verify\fold_1\split_1
+I0509 19:15:35.026157 56496 train_credit_nam.py:272] Started training with logdir runs\credit_nam_verify\fold_1\split_1
+WARNING:tensorflow:From W:\Binghamton\The 3rd Semester_Deci\Machine Learning\Extra credit\Neural Additive Models\ML436-536_EC_O2_Neural-Additive-Models\Project_Code\train_credit_nam.py:282: The name tf.set_random_seed is deprecated. Please use tf.compat.v1.set_random_seed instead.
+
+W0509 19:15:35.032328 56496 module_wrapper.py:149] From W:\Binghamton\The 3rd Semester_Deci\Machine Learning\Extra credit\Neural Additive Models\ML436-536_EC_O2_Neural-Additive-Models\Project_Code\train_credit_nam.py:282: The name tf.set_random_seed is deprecated. Please use tf.compat.v1.set_random_seed instead.
+
+WARNING:tensorflow:From W:\Binghamton\The 3rd Semester_Deci\Machine Learning\Extra credit\Neural Additive Models\ML436-536_EC_O2_Neural-Additive-Models\Project_Code\credit_graph_builder.py:113: shuffle_and_repeat (from tensorflow.python.data.experimental.ops.shuffle_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.shuffle(buffer_size, seed)` followed by `tf.data.Dataset.repeat(count)`. Static tf.data optimizations will take care of using the fused implementation.
+W0509 19:15:35.050815 56496 deprecation.py:50] From W:\Binghamton\The 3rd Semester_Deci\Machine Learning\Extra credit\Neural Additive Models\ML436-536_EC_O2_Neural-Additive-Models\Project_Code\credit_graph_builder.py:113: shuffle_and_repeat (from tensorflow.python.data.experimental.ops.shuffle_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.shuffle(buffer_size, seed)` followed by `tf.data.Dataset.repeat(count)`. Static tf.data optimizations will take care of using the fused implementation.
+WARNING:tensorflow:From W:\Binghamton\The 3rd Semester_Deci\Machine Learning\Extra credit\Neural Additive Models\ML436-536_EC_O2_Neural-Additive-Models\Project_Code\credit_graph_builder.py:118: sample_from_datasets_v1 (from tensorflow.python.data.experimental.ops.interleave_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.sample_from_datasets(...)`.
+W0509 19:15:35.133595 56496 deprecation.py:50] From W:\Binghamton\The 3rd Semester_Deci\Machine Learning\Extra credit\Neural Additive Models\ML436-536_EC_O2_Neural-Additive-Models\Project_Code\credit_graph_builder.py:118: sample_from_datasets_v1 (from tensorflow.python.data.experimental.ops.interleave_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.sample_from_datasets(...)`.
+WARNING:tensorflow:From C:\Users\Jay07\anaconda3\envs\nam\lib\site-packages\tensorflow\python\data\experimental\ops\interleave_ops.py:163: sample_from_datasets_v2 (from tensorflow.python.data.experimental.ops.interleave_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.sample_from_datasets(...)`.
+W0509 19:15:35.133595 56496 deprecation.py:50] From C:\Users\Jay07\anaconda3\envs\nam\lib\site-packages\tensorflow\python\data\experimental\ops\interleave_ops.py:163: sample_from_datasets_v2 (from tensorflow.python.data.experimental.ops.interleave_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.sample_from_datasets(...)`.
+2026-05-09 19:15:35.155917: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE SSE2 SSE3 SSE4.1 SSE4.2 AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:From W:\Binghamton\The 3rd Semester_Deci\Machine Learning\Extra credit\Neural Additive Models\ML436-536_EC_O2_Neural-Additive-Models\Project_Code\credit_graph_builder.py:128: The name tf.data.Iterator is deprecated. Please use tf.compat.v1.data.Iterator instead.
+
+W0509 19:15:35.386727 56496 module_wrapper.py:149] From W:\Binghamton\The 3rd Semester_Deci\Machine Learning\Extra credit\Neural Additive Models\ML436-536_EC_O2_Neural-Additive-Models\Project_Code\credit_graph_builder.py:128: The name tf.data.Iterator is deprecated. Please use tf.compat.v1.data.Iterator instead.
+
+WARNING:tensorflow:From W:\Binghamton\The 3rd Semester_Deci\Machine Learning\Extra credit\Neural Additive Models\ML436-536_EC_O2_Neural-Additive-Models\Project_Code\credit_graph_builder.py:129: DatasetV1.output_types (from tensorflow.python.data.ops.dataset_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.compat.v1.data.get_output_types(dataset)`.
+W0509 19:15:35.386727 56496 deprecation.py:50] From W:\Binghamton\The 3rd Semester_Deci\Machine Learning\Extra credit\Neural Additive Models\ML436-536_EC_O2_Neural-Additive-Models\Project_Code\credit_graph_builder.py:129: DatasetV1.output_types (from tensorflow.python.data.ops.dataset_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.compat.v1.data.get_output_types(dataset)`.
+WARNING:tensorflow:From W:\Binghamton\The 3rd Semester_Deci\Machine Learning\Extra credit\Neural Additive Models\ML436-536_EC_O2_Neural-Additive-Models\Project_Code\credit_graph_builder.py:130: DatasetV1.output_shapes (from tensorflow.python.data.ops.dataset_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.compat.v1.data.get_output_shapes(dataset)`.
+W0509 19:15:35.386727 56496 deprecation.py:50] From W:\Binghamton\The 3rd Semester_Deci\Machine Learning\Extra credit\Neural Additive Models\ML436-536_EC_O2_Neural-Additive-Models\Project_Code\credit_graph_builder.py:130: DatasetV1.output_shapes (from tensorflow.python.data.ops.dataset_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.compat.v1.data.get_output_shapes(dataset)`.
+WARNING:tensorflow:From C:\Users\Jay07\anaconda3\envs\nam\lib\site-packages\tensorflow\python\data\ops\iterator_ops.py:360: Iterator.output_types (from tensorflow.python.data.ops.iterator_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.compat.v1.data.get_output_types(iterator)`.
+W0509 19:15:35.386727 56496 deprecation.py:50] From C:\Users\Jay07\anaconda3\envs\nam\lib\site-packages\tensorflow\python\data\ops\iterator_ops.py:360: Iterator.output_types (from tensorflow.python.data.ops.iterator_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.compat.v1.data.get_output_types(iterator)`.
+WARNING:tensorflow:From C:\Users\Jay07\anaconda3\envs\nam\lib\site-packages\tensorflow\python\data\ops\iterator_ops.py:361: Iterator.output_shapes (from tensorflow.python.data.ops.iterator_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.compat.v1.data.get_output_shapes(iterator)`.
+W0509 19:15:35.386727 56496 deprecation.py:50] From C:\Users\Jay07\anaconda3\envs\nam\lib\site-packages\tensorflow\python\data\ops\iterator_ops.py:361: Iterator.output_shapes (from tensorflow.python.data.ops.iterator_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.compat.v1.data.get_output_shapes(iterator)`.
+WARNING:tensorflow:From C:\Users\Jay07\anaconda3\envs\nam\lib\site-packages\tensorflow\python\data\ops\iterator_ops.py:363: Iterator.output_classes (from tensorflow.python.data.ops.iterator_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.compat.v1.data.get_output_classes(iterator)`.
+W0509 19:15:35.386727 56496 deprecation.py:50] From C:\Users\Jay07\anaconda3\envs\nam\lib\site-packages\tensorflow\python\data\ops\iterator_ops.py:363: Iterator.output_classes (from tensorflow.python.data.ops.iterator_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.compat.v1.data.get_output_classes(iterator)`.
+WARNING:tensorflow:From C:\Users\Jay07\anaconda3\envs\nam\lib\site-packages\keras\src\utils\version_utils.py:76: The name tf.executing_eagerly_outside_functions is deprecated. Please use tf.compat.v1.executing_eagerly_outside_functions instead.
+
+W0509 19:15:35.886868 56496 module_wrapper.py:149] From C:\Users\Jay07\anaconda3\envs\nam\lib\site-packages\keras\src\utils\version_utils.py:76: The name tf.executing_eagerly_outside_functions is deprecated. Please use tf.compat.v1.executing_eagerly_outside_functions instead.
+
+WARNING:tensorflow:From W:\Binghamton\The 3rd Semester_Deci\Machine Learning\Extra credit\Neural Additive Models\ML436-536_EC_O2_Neural-Additive-Models\Project_Code\credit_graph_builder.py:207: The name tf.train.get_or_create_global_step is deprecated. Please use tf.compat.v1.train.get_or_create_global_step instead.
+
+W0509 19:15:35.896808 56496 module_wrapper.py:149] From W:\Binghamton\The 3rd Semester_Deci\Machine Learning\Extra credit\Neural Additive Models\ML436-536_EC_O2_Neural-Additive-Models\Project_Code\credit_graph_builder.py:207: The name tf.train.get_or_create_global_step is deprecated. Please use tf.compat.v1.train.get_or_create_global_step instead.
+
+WARNING:tensorflow:From W:\Binghamton\The 3rd Semester_Deci\Machine Learning\Extra credit\Neural Additive Models\ML436-536_EC_O2_Neural-Additive-Models\Project_Code\credit_graph_builder.py:221: DatasetV1.make_initializable_iterator (from tensorflow.python.data.ops.dataset_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+This is a deprecated API that should only be used in TF 1 graph mode and legacy TF 2 graph mode available through `tf.compat.v1`. In all other situations -- namely, eager mode and inside `tf.function` -- you can consume dataset elements using `for elem in dataset: ...` or by explicitly creating iterator via `iterator = iter(dataset)` and fetching its elements via `values = next(iterator)`. Furthermore, this API is not available in TF 2. During the transition from TF 1 to TF 2 you can use `tf.compat.v1.data.make_initializable_iterator(dataset)` to create a TF 1 graph mode style iterator for a dataset created through TF 2 APIs. Note that this should be a transient state of your code base as there are in general no guarantees about the interoperability of TF 1 and TF 2 code.
+W0509 19:15:39.789230 56496 deprecation.py:50] From W:\Binghamton\The 3rd Semester_Deci\Machine Learning\Extra credit\Neural Additive Models\ML436-536_EC_O2_Neural-Additive-Models\Project_Code\credit_graph_builder.py:221: DatasetV1.make_initializable_iterator (from tensorflow.python.data.ops.dataset_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+This is a deprecated API that should only be used in TF 1 graph mode and legacy TF 2 graph mode available through `tf.compat.v1`. In all other situations -- namely, eager mode and inside `tf.function` -- you can consume dataset elements using `for elem in dataset: ...` or by explicitly creating iterator via `iterator = iter(dataset)` and fetching its elements via `values = next(iterator)`. Furthermore, this API is not available in TF 2. During the transition from TF 1 to TF 2 you can use `tf.compat.v1.data.make_initializable_iterator(dataset)` to create a TF 1 graph mode style iterator for a dataset created through TF 2 APIs. Note that this should be a transient state of your code base as there are in general no guarantees about the interoperability of TF 1 and TF 2 code.
+WARNING:tensorflow:From W:\Binghamton\The 3rd Semester_Deci\Machine Learning\Extra credit\Neural Additive Models\ML436-536_EC_O2_Neural-Additive-Models\Project_Code\credit_graph_builder.py:228: The name tf.metrics.mean is deprecated. Please use tf.compat.v1.metrics.mean instead.
+
+W0509 19:15:43.617506 56496 module_wrapper.py:149] From W:\Binghamton\The 3rd Semester_Deci\Machine Learning\Extra credit\Neural Additive Models\ML436-536_EC_O2_Neural-Additive-Models\Project_Code\credit_graph_builder.py:228: The name tf.metrics.mean is deprecated. Please use tf.compat.v1.metrics.mean instead.
+
+WARNING:tensorflow:From W:\Binghamton\The 3rd Semester_Deci\Machine Learning\Extra credit\Neural Additive Models\ML436-536_EC_O2_Neural-Additive-Models\Project_Code\credit_graph_builder.py:232: The name tf.summary.scalar is deprecated. Please use tf.compat.v1.summary.scalar instead.
+
+W0509 19:15:43.639286 56496 module_wrapper.py:149] From W:\Binghamton\The 3rd Semester_Deci\Machine Learning\Extra credit\Neural Additive Models\ML436-536_EC_O2_Neural-Additive-Models\Project_Code\credit_graph_builder.py:232: The name tf.summary.scalar is deprecated. Please use tf.compat.v1.summary.scalar instead.
+
+INFO:tensorflow:Create CheckpointSaverHook.
+I0509 19:15:43.741714 56496 basic_session_run_hooks.py:557] Create CheckpointSaverHook.
+INFO:tensorflow:Graph was finalized.
+I0509 19:15:45.231655 56496 monitored_session.py:240] Graph was finalized.
+2026-05-09 19:15:45.394812: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:388] MLIR V1 optimization pass is not enabled
+INFO:tensorflow:Running local_init_op.
+I0509 19:15:47.463514 56496 session_manager.py:545] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I0509 19:15:47.859941 56496 session_manager.py:548] Done running local_init_op.
+INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 0...
+I0509 19:16:00.198064 56496 basic_session_run_hooks.py:627] Calling checkpoint listeners before saving checkpoint 0...
+INFO:tensorflow:Saving checkpoints for 0 into runs\credit_nam_verify\fold_1\split_1\model_0\model.ckpt.
+I0509 19:16:00.198064 56496 basic_session_run_hooks.py:632] Saving checkpoints for 0 into runs\credit_nam_verify\fold_1\split_1\model_0\model.ckpt.
+INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 0...
+I0509 19:16:01.243518 56496 basic_session_run_hooks.py:639] Calling checkpoint listeners after saving checkpoint 0...
+2026-05-09 19:16:04.219750: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:04.252111: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:04.291555: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:04.329712: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:04.370122: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:04.408590: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:04.439264: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:04.477338: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:04.529721: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:04.567691: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:04.600914: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:04.669661: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:04.708857: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:04.747153: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:04.778498: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:04.808419: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:04.838645: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:04.867991: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:04.897917: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:04.929295: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:04.958211: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:05.004641: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:05.051316: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:05.090966: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:05.120879: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:05.183438: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:05.223951: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:05.262061: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:05.292727: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:16:05.345666: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 970...
+I0509 19:20:49.856909 56496 basic_session_run_hooks.py:627] Calling checkpoint listeners before saving checkpoint 970...
+INFO:tensorflow:Saving checkpoints for 970 into runs\credit_nam_verify\fold_1\split_1\model_0\model.ckpt.
+I0509 19:20:49.856909 56496 basic_session_run_hooks.py:632] Saving checkpoints for 970 into runs\credit_nam_verify\fold_1\split_1\model_0\model.ckpt.
+WARNING:tensorflow:From C:\Users\Jay07\anaconda3\envs\nam\lib\site-packages\tensorflow\python\training\saver.py:1067: remove_checkpoint (from tensorflow.python.checkpoint.checkpoint_management) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use standard file APIs to delete files with this prefix.
+W0509 19:20:49.882745 56496 deprecation.py:50] From C:\Users\Jay07\anaconda3\envs\nam\lib\site-packages\tensorflow\python\training\saver.py:1067: remove_checkpoint (from tensorflow.python.checkpoint.checkpoint_management) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use standard file APIs to delete files with this prefix.
+INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 970...
+I0509 19:20:50.410849 56496 basic_session_run_hooks.py:639] Calling checkpoint listeners after saving checkpoint 970...
+2026-05-09 19:20:51.505799: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:51.537580: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:51.570063: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:51.602289: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:51.628556: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:51.684775: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:51.707829: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:51.731819: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:51.756406: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:51.779617: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:51.805192: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:51.828989: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:51.864596: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:51.887762: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:51.919030: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:51.943043: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:52.000323: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:52.023707: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:52.050670: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:52.090722: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:52.116755: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:52.139983: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:52.165816: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:52.202479: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:52.233351: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:52.276863: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:52.307688: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:52.343527: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:52.368507: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:20:52.393293: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+INFO:tensorflow:Finished training.
+I0509 19:21:15.960016 56496 train_credit_nam.py:355] Finished training.
+INFO:tensorflow:Model 0: Best Epoch 5, Train AUROC 0.9918, Validation AUROC 0.9588
+I0509 19:21:15.960016 56496 train_credit_nam.py:357] Model 0: Best Epoch 5, Train AUROC 0.9918, Validation AUROC 0.9588
+ERROR:tensorflow:Couldn't match files for checkpoint runs\credit_nam_verify\fold_1\split_1\model_0\best_checkpoint\model
+E0509 19:21:15.983042 56496 checkpoint_management.py:363] Couldn't match files for checkpoint runs\credit_nam_verify\fold_1\split_1\model_0\best_checkpoint\model
+INFO:tensorflow:Restoring parameters from runs\credit_nam_verify\fold_1\split_1\model_0\best_checkpoint\model.ckpt-970
+I0509 19:21:20.491273 56496 saver.py:1413] Restoring parameters from runs\credit_nam_verify\fold_1\split_1\model_0\best_checkpoint\model.ckpt-970
+2026-05-09 19:21:21.283823: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:21.306644: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:21.336695: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:21.359169: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:21.393677: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:21.416378: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:21.439106: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:21.468354: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:21.491196: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:21.520099: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:21.542682: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:21.605548: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:21.646083: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:21.682795: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:21.711819: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:21.733764: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:21.769069: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:21.796691: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:21.825133: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:21.854939: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:21.883730: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:21.912341: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:21.935542: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:21.964755: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:21.987652: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:22.010527: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:22.045158: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:22.067760: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:22.093052: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+2026-05-09 19:21:22.115291: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:933] Skipping loop optimization for Merge node with control input: model_0/cond_2/branch_executed/_6
+INFO:tensorflow:Model 0: Outer Test AUROC 0.9798
+I0509 19:21:27.865750 56496 train_credit_nam.py:262] Model 0: Outer Test AUROC 0.9798
+INFO:tensorflow:Mean Outer Test AUROC 0.9798
+I0509 19:21:27.904632 56496 train_credit_nam.py:370] Mean Outer Test AUROC 0.9798
+INFO:tensorflow:Completed fold 1 with held-out test AUROC 0.9798
+I0509 19:21:27.904632 56496 train_credit_nam.py:423] Completed fold 1 with held-out test AUROC 0.9798
