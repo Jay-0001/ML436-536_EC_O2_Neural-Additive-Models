@@ -1,0 +1,12 @@
+{
+  "best_validation_prauc": 0.7182,
+  "best_trial_number": 3,
+  "best_params": {
+    "output_regularization": 0.0678835532939891,
+    "l2_regularization": 2.650063204107468e-06,
+    "dropout": 0.5,
+    "feature_dropout": 0.1
+  },
+  "best_test_prauc_from_same_run": 0.7728,
+  "best_trial_logdir": "runs\\credit_tune_fold3\\trial_003"
+}

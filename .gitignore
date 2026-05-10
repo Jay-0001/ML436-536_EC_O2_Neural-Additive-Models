@@ -1,0 +1,26 @@
+# Virtual Environments
+venv/
+nam/
+env/
+.venv/
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Data Files
+creditcard.csv
+
+# IDE
+.vscode/
+.idea/
+
+# Scripts
+*.ps1
+*.sh
+*.bat
+
+# OS
+.DS_Store
+Thumbs.db
