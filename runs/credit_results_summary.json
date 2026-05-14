@@ -1,0 +1,45 @@
+{
+  "fold_results": [
+    {
+      "fold_num": 1,
+      "test_prauc": 0.7472025700807557,
+      "test_auc": 0.9822820647961776,
+      "source": "final_training_checkpoint",
+      "summary_path": "W:\\Binghamton\\The 3rd Semester_Deci\\Machine Learning\\Extra credit\\Neural Additive Models\\ML436-536_EC_O2_Neural-Additive-Models\\runs\\credit_fold1_final\\fold_1\\split_1\\model_0\\best_checkpoint"
+    },
+    {
+      "fold_num": 2,
+      "test_prauc": 0.7813950030333469,
+      "test_auc": 0.9815087192555846,
+      "source": "final_training_checkpoint",
+      "summary_path": "W:\\Binghamton\\The 3rd Semester_Deci\\Machine Learning\\Extra credit\\Neural Additive Models\\ML436-536_EC_O2_Neural-Additive-Models\\runs\\credit_fold2_final\\fold_2\\split_1\\model_0\\best_checkpoint"
+    },
+    {
+      "fold_num": 3,
+      "test_prauc": 0.772825716919144,
+      "test_auc": 0.9865392545706886,
+      "source": "final_training_checkpoint",
+      "summary_path": "W:\\Binghamton\\The 3rd Semester_Deci\\Machine Learning\\Extra credit\\Neural Additive Models\\ML436-536_EC_O2_Neural-Additive-Models\\runs\\credit_fold3_final\\fold_3\\split_1\\model_0\\best_checkpoint"
+    },
+    {
+      "fold_num": 4,
+      "test_prauc": 0.7886016166087696,
+      "test_auc": 0.9738574131092741,
+      "source": "final_training_checkpoint",
+      "summary_path": "W:\\Binghamton\\The 3rd Semester_Deci\\Machine Learning\\Extra credit\\Neural Additive Models\\ML436-536_EC_O2_Neural-Additive-Models\\runs\\credit_fold4_final\\fold_4\\split_1\\model_0\\best_checkpoint"
+    },
+    {
+      "fold_num": 5,
+      "test_prauc": 0.7686170391754994,
+      "test_auc": 0.9714241569515272,
+      "source": "final_training_checkpoint",
+      "summary_path": "W:\\Binghamton\\The 3rd Semester_Deci\\Machine Learning\\Extra credit\\Neural Additive Models\\ML436-536_EC_O2_Neural-Additive-Models\\runs\\credit_fold5_final\\fold_5\\split_1\\model_0\\best_checkpoint"
+    }
+  ],
+  "available_prauc_fold_count": 5,
+  "mean_test_prauc": 0.7717283891635031,
+  "std_test_prauc": 0.015736499426168095,
+  "available_auc_fold_count": 5,
+  "mean_test_auc": 0.9791223217366504,
+  "std_test_auc": 0.006278351015568742
+}

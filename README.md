@@ -25,6 +25,29 @@ The immediate focus of this repository is the NAM pipeline for the Credit Fraud 
 - checkpointing and best-model restoration
 - Bayesian hyperparameter tuning over the paper-aligned regularization parameters
 
+## Metric Note
+
+There is a metric inconsistency between the paper appendix text and the main
+results table.
+
+- The appendix wording suggests precision-recall AUC for imbalanced
+  classification.
+- The main single-task results table labels the Credit Fraud result as `AUC`.
+- The original author code uses `ROC AUC` for classification and `RMSE` for
+  regression.
+
+For this reason, the paper-faithful reproduction target for Credit Fraud in
+this repository is:
+
+- `ROC AUC` for comparison against the published table
+
+We also compute:
+
+- `PR AUC` as an additional diagnostic metric for the imbalanced fraud dataset
+
+If the reproduced `ROC AUC` matches the paper table while `PR AUC` is much
+lower, that is expected and does not by itself indicate a failed reproduction.
+
 ## Project Code
 
 The trimmed experiment code used for our reproduction lives in:
@@ -34,6 +57,7 @@ The trimmed experiment code used for our reproduction lives in:
 - [Project_Code/credit_graph_builder.py](./Project_Code/credit_graph_builder.py)
 - [Project_Code/train_credit_nam.py](./Project_Code/train_credit_nam.py)
 - [Project_Code/tune_credit_nam.py](./Project_Code/tune_credit_nam.py)
+- [Project_Code/aggregate_credit_results.py](./Project_Code/aggregate_credit_results.py)
 
 These files are adapted from the authors' released implementation, but narrowed to the Credit Fraud experiment so the training flow is easier to inspect and reproduce.
 
@@ -115,6 +139,23 @@ python Project_Code\train_credit_nam.py `
   --feature_dropout <BEST_FEATURE_DROPOUT>
 ```
 
+### 4. Aggregate the 5-fold held-out test metrics
+
+After running the fold workflow, aggregate the saved fold results with:
+
+```powershell
+python Project_Code\aggregate_credit_results.py `
+  --data_path "<PATH_TO_CREDITCARD_CSV>"
+```
+
+The script evaluates the saved best checkpoints from the final fold runs and
+writes both:
+
+- held-out test `ROC AUC`
+- held-out test `PR AUC`
+
+to the final summary JSON.
+
 ## End-to-End Training Flow
 
 1. Load and preprocess the Credit Fraud dataset.
@@ -129,6 +170,6 @@ python Project_Code\train_credit_nam.py `
 6. Select the configuration with the best validation PRAUC for that chosen inner split and save it to `Tuned_Hyperparameters`.
 7. Train the NAM for the target fold again using the tuned hyperparameters and the same inner-split settings.
 8. Restore the best validation checkpoint from that final fold run.
-9. Evaluate on the held-out outer test fold and record the final test PRAUC.
+9. Evaluate on the held-out outer test fold and record both final test `PR AUC` and `ROC AUC`.
 10. Repeat the tune-then-train workflow for folds 1 through 5.
-11. Average the 5 held-out test PRAUC values and compute the standard deviation.
+11. Run `Project_Code\aggregate_credit_results.py` to average the 5 held-out test metrics and compute the standard deviation.
