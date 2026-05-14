@@ -1,0 +1,22 @@
+{
+  "fold_num": 3,
+  "test_auc": 0.9962927365343197,
+  "test_prauc": 0.8719632521420002,
+  "scale_pos_weight": 577.2893401015228,
+  "params": {
+    "n_estimators": 300,
+    "max_depth": 6,
+    "learning_rate": 0.1,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "reg_lambda": 1.0,
+    "min_child_weight": 1,
+    "gamma": 0.0,
+    "tree_method": "hist",
+    "use_scale_pos_weight": true
+  },
+  "source": "xgboost_final",
+  "logdir": "runs\\xgboost\\credit_fold3",
+  "model_type": "xgboost_classifier",
+  "model_path": "runs\\xgboost\\credit_fold3\\fold_3_model.json"
+}

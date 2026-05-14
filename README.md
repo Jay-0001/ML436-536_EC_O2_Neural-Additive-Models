@@ -24,6 +24,8 @@ The immediate focus of this repository is the NAM pipeline for the Credit Fraud 
 - held-out fold evaluation
 - checkpointing and best-model restoration
 - Bayesian hyperparameter tuning over the paper-aligned regularization parameters
+- sklearn Logistic Regression baseline with grid search
+- XGBoost baseline with the same outer 5-fold evaluation structure
 
 ## Metric Note
 
@@ -52,12 +54,19 @@ lower, that is expected and does not by itself indicate a failed reproduction.
 
 The trimmed experiment code used for our reproduction lives in:
 
-- [Project_Code/credit_data_utils.py](./Project_Code/credit_data_utils.py)
-- [Project_Code/credit_nam_models.py](./Project_Code/credit_nam_models.py)
-- [Project_Code/credit_graph_builder.py](./Project_Code/credit_graph_builder.py)
-- [Project_Code/train_credit_nam.py](./Project_Code/train_credit_nam.py)
-- [Project_Code/tune_credit_nam.py](./Project_Code/tune_credit_nam.py)
-- [Project_Code/aggregate_credit_results.py](./Project_Code/aggregate_credit_results.py)
+- [Project_Code_NAM/credit_data_utils.py](./Project_Code_NAM/credit_data_utils.py)
+- [Project_Code_NAM/credit_nam_models.py](./Project_Code_NAM/credit_nam_models.py)
+- [Project_Code_NAM/credit_graph_builder.py](./Project_Code_NAM/credit_graph_builder.py)
+- [Project_Code_NAM/train_credit_nam.py](./Project_Code_NAM/train_credit_nam.py)
+- [Project_Code_NAM/tune_credit_nam.py](./Project_Code_NAM/tune_credit_nam.py)
+- [Project_Code_NAM/aggregate_credit_results.py](./Project_Code_NAM/aggregate_credit_results.py)
+
+Baseline code lives in:
+
+- [Baselines/logistic_credit.py](./Baselines/logistic_credit.py)
+- [Baselines/aggregate_logistic_results.py](./Baselines/aggregate_logistic_results.py)
+- [Baselines/xgboost_credit.py](./Baselines/xgboost_credit.py)
+- [Baselines/aggregate_xgboost_results.py](./Baselines/aggregate_xgboost_results.py)
 
 These files are adapted from the authors' released implementation, but narrowed to the Credit Fraud experiment so the training flow is easier to inspect and reproduce.
 
@@ -79,7 +88,7 @@ Create and activate a Conda environment first, then run commands from the reposi
 conda create -n nam python=3.9 -y
 conda activate nam
 python -m pip install --upgrade pip
-python -m pip install tensorflow==2.15.1 numpy pandas scikit-learn absl-py optuna pypdf
+python -m pip install tensorflow==2.15.1 numpy pandas scikit-learn absl-py optuna pypdf xgboost
 ```
 
 Use a placeholder path to the Credit Fraud dataset in the commands below:
@@ -93,7 +102,7 @@ Example:
 ### 1. Smoke test one training run
 
 ```powershell
-python Project_Code\train_credit_nam.py `
+python Project_Code_NAM\train_credit_nam.py `
   --data_path "<PATH_TO_CREDITCARD_CSV>" `
   --logdir runs\credit_verify `
   --training_epochs 5 `
@@ -106,7 +115,7 @@ python Project_Code\train_credit_nam.py `
 ### 2. Tune hyperparameters for one fold
 
 ```powershell
-python Project_Code\tune_credit_nam.py `
+python Project_Code_NAM\tune_credit_nam.py `
   --data_path "<PATH_TO_CREDITCARD_CSV>" `
   --logdir runs\credit_tune_fold1 `
   --training_epochs 10 `
@@ -120,12 +129,12 @@ python Project_Code\tune_credit_nam.py `
 
 ### 3. Train the final model on one fold with chosen hyperparameters
 
-Run `Project_Code\train_credit_nam.py` again using the selected values from the JSON file in `Tuned_Hyperparameters`.
+Run `Project_Code_NAM\train_credit_nam.py` again using the selected values from the JSON file in `Tuned_Hyperparameters`.
 
 Use the same `fold_num`, `data_split`, and `num_splits` values that were used during tuning for that fold so the final fold run is aligned with the tuned validation setup.
 
 ```powershell
-python Project_Code\train_credit_nam.py `
+python Project_Code_NAM\train_credit_nam.py `
   --data_path "<PATH_TO_CREDITCARD_CSV>" `
   --logdir runs\credit_fold1_final `
   --training_epochs 100 `
@@ -144,7 +153,7 @@ python Project_Code\train_credit_nam.py `
 After running the fold workflow, aggregate the saved fold results with:
 
 ```powershell
-python Project_Code\aggregate_credit_results.py `
+python Project_Code_NAM\aggregate_credit_results.py `
   --data_path "<PATH_TO_CREDITCARD_CSV>"
 ```
 
@@ -155,6 +164,41 @@ writes both:
 - held-out test `PR AUC`
 
 to the final summary JSON.
+
+### 5. Run the Logistic Regression baseline
+
+```powershell
+python Baselines\logistic_credit.py `
+  --data_path "<PATH_TO_CREDITCARD_CSV>" `
+  --logdir runs\logistic\credit_fold1 `
+  --fold_num 1 `
+  --num_splits 3 `
+  --validation_size 0.125 `
+  --refit_metric roc_auc
+```
+
+Aggregate the 5-fold Logistic Regression results with:
+
+```powershell
+python Baselines\aggregate_logistic_results.py `
+  --runs_dir runs\logistic
+```
+
+### 6. Run the XGBoost baseline
+
+```powershell
+python Baselines\xgboost_credit.py `
+  --data_path "<PATH_TO_CREDITCARD_CSV>" `
+  --logdir runs\xgboost\credit_fold1 `
+  --fold_num 1
+```
+
+Aggregate the 5-fold XGBoost results with:
+
+```powershell
+python Baselines\aggregate_xgboost_results.py `
+  --runs_dir runs\xgboost
+```
 
 ## End-to-End Training Flow
 
@@ -172,4 +216,6 @@ to the final summary JSON.
 8. Restore the best validation checkpoint from that final fold run.
 9. Evaluate on the held-out outer test fold and record both final test `PR AUC` and `ROC AUC`.
 10. Repeat the tune-then-train workflow for folds 1 through 5.
-11. Run `Project_Code\aggregate_credit_results.py` to average the 5 held-out test metrics and compute the standard deviation.
+11. Run `Project_Code_NAM\aggregate_credit_results.py` to average the 5 held-out NAM metrics and compute the standard deviation.
+12. Run the Logistic Regression and XGBoost baselines over the same 5 outer folds.
+13. Aggregate the baseline fold results with their corresponding scripts and compare all models primarily on `ROC AUC`.

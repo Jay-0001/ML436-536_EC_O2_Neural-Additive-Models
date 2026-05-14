@@ -1,0 +1,20 @@
+{
+  "fold_num": 5,
+  "num_splits": 3,
+  "validation_size": 0.125,
+  "refit_metric": "roc_auc",
+  "best_params": {
+    "C": 10.0,
+    "class_weight": "balanced",
+    "penalty": "l2",
+    "solver": "lbfgs"
+  },
+  "best_validation_auc": 0.9817344354736829,
+  "best_validation_prauc": 0.7688774464205471,
+  "test_auc": 0.9801184335999845,
+  "test_prauc": 0.73344899096297,
+  "source": "logistic_regression_final",
+  "logdir": "runs\\logistic\\credit_fold1",
+  "model_type": "sklearn_logistic_regression",
+  "model_path": "runs\\logistic\\credit_fold1\\fold_5_best_model.joblib"
+}

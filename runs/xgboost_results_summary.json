@@ -1,0 +1,45 @@
+{
+  "fold_results": [
+    {
+      "fold_num": 1,
+      "test_auc": 0.9794961734184076,
+      "test_prauc": 0.8502407682555013,
+      "source": "xgboost_final",
+      "summary_path": "runs\\xgboost\\credit_fold1\\fold_1_summary.json"
+    },
+    {
+      "fold_num": 2,
+      "test_auc": 0.9696855120680807,
+      "test_prauc": 0.9026431820537902,
+      "source": "xgboost_final",
+      "summary_path": "runs\\xgboost\\credit_fold2\\fold_2_summary.json"
+    },
+    {
+      "fold_num": 3,
+      "test_auc": 0.9962927365343197,
+      "test_prauc": 0.8719632521420002,
+      "source": "xgboost_final",
+      "summary_path": "runs\\xgboost\\credit_fold3\\fold_3_summary.json"
+    },
+    {
+      "fold_num": 4,
+      "test_auc": 0.9721767714524742,
+      "test_prauc": 0.8642765637768743,
+      "source": "xgboost_final",
+      "summary_path": "runs\\xgboost\\credit_fold4\\fold_4_summary.json"
+    },
+    {
+      "fold_num": 5,
+      "test_auc": 0.9857442898021633,
+      "test_prauc": 0.8335632136400497,
+      "source": "xgboost_final",
+      "summary_path": "runs\\xgboost\\credit_fold5\\fold_5_summary.json"
+    }
+  ],
+  "available_auc_fold_count": 5,
+  "mean_test_auc": 0.980679096655089,
+  "std_test_auc": 0.010770209784424795,
+  "available_prauc_fold_count": 5,
+  "mean_test_prauc": 0.8645373959736432,
+  "std_test_prauc": 0.02584112923906269
+}

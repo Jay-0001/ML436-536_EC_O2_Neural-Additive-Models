@@ -1,0 +1,45 @@
+{
+  "fold_results": [
+    {
+      "fold_num": 1,
+      "test_auc": 0.9799454190534507,
+      "test_prauc": 0.6984091201037506,
+      "source": "logistic_regression_final",
+      "summary_path": "runs\\logistic\\credit_fold1\\fold_1_summary.json"
+    },
+    {
+      "fold_num": 2,
+      "test_auc": 0.9824701830751459,
+      "test_prauc": 0.7162310251198579,
+      "source": "logistic_regression_final",
+      "summary_path": "runs\\logistic\\credit_fold2\\fold_2_summary.json"
+    },
+    {
+      "fold_num": 3,
+      "test_auc": 0.9794378683890066,
+      "test_prauc": 0.7282706548716572,
+      "source": "logistic_regression_final",
+      "summary_path": "runs\\logistic\\credit_fold3\\fold_3_summary.json"
+    },
+    {
+      "fold_num": 4,
+      "test_auc": 0.963988275436091,
+      "test_prauc": 0.7698456670160937,
+      "source": "logistic_regression_final",
+      "summary_path": "runs\\logistic\\credit_fold4\\fold_4_summary.json"
+    },
+    {
+      "fold_num": 5,
+      "test_auc": 0.9801184335999845,
+      "test_prauc": 0.73344899096297,
+      "source": "logistic_regression_final",
+      "summary_path": "runs\\logistic\\credit_fold5\\fold_5_summary.json"
+    }
+  ],
+  "available_auc_fold_count": 5,
+  "mean_test_auc": 0.9771920359107357,
+  "std_test_auc": 0.007473065198558839,
+  "available_prauc_fold_count": 5,
+  "mean_test_prauc": 0.7292410916148658,
+  "std_test_prauc": 0.026397215787735524
+}
